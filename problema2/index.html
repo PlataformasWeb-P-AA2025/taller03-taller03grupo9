@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css"> <!-- Se incluye el estilo del datepicker de Jquery -->
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script> <!-- Se incluye la libreria de Jquery -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script> <!-- Se incluye la libreria de Jquery UI -->
+</head>
+
+<body>
+
+    <h1>Formulario de usuario</h1>
+<!-- se usan los input para que se pueda ingresar lo datos -->
+    <div class="container">
+        <div class="formulario">
+            <label>Nombre:<br>
+                <input type="text" id="nombre">
+            </label><br><br>
+            <label>Apellido:<br>
+                <input type="text" id="apellido">
+            </label><br><br>
+            <label>Direccion:<br>
+                <input type="text" id="direccion">
+            </label><br><br>
+            <label>Fecha de nacimiento:<br>
+                <input type="text" id="fechaNacimiento">
+
+                <button onclick="generarMensaje()">Generar Mensaje</button>
+                <!-- Aqui se posiciona el boton para que al dar click se activa la funcion de generar el mensaje -->
+        </div>
+
+        <div class="resultado" id="columnaResultado">
+            <h3>Valores Ingresados</h3>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#fechaNacimiento").datepicker({
+                dateFormat: "dd-mm-yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "1900:2025"
+            });
+        }); // Se inicializa el datepicker para el campo de fecha de nacimiento
+
+        function generarMensaje() {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const direccion = document.getElementById("direccion").value;
+            const fecha = document.getElementById("fechaNacimiento").value;
+
+            console.log("Nombre: " + nombre);
+            console.log("Apellido: " + apellido);
+            console.log("Direccion: " + direccion);
+            console.log("Fecha de nacimiento: " + fecha);
+
+            const columna = document.getElementById("columnaResultado");
+            columna.innerHTML = `<h3>Valores Ingresados</h3>
+                <p><strong>Nombre:</strong> ${nombre}</p>
+                <p><strong>Apellido:</strong> ${apellido}</p>
+                <p><strong>Direccion:</strong> ${direccion}</p>
+                <p><strong>Fecha de nacimiento:</strong> ${fecha}</p>`;
+        }
+    </script> <!-- Se crea la funcion para generar el mensaje y se posiciona el resultado en la columna de la derecha -->
+
+</body>
+
+</html>

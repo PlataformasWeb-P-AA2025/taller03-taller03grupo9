@@ -1,0 +1,27 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+  }
+
+  /* Se usa la fuente Arial y se agrega un margen alrededor del contenido */
+  
+  .container {
+    display: flex;
+    gap: 50px;
+  }
+   /*Se usa Flexbox para poner el formulario y los resultados uno al lado del otro, con gap se separan ambas columnas*/
+
+  .formulario,
+  .resultado {
+    width: 300px;
+  }
+  /*Ambas columnas con el mismo ancho*/
+  .resultado p {
+    margin: 0 0 10px;
+    background: #f0f0f0;
+    padding: 8px;
+    border-radius: 4px;
+  }
+
+  /** Se le da un fondo gris claro a los resultados, se le agrega un margen inferior y se le da un padding y un borde redondeado */
+  
